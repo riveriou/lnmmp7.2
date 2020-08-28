@@ -28,6 +28,7 @@ RUN echo "user=root" >> /etc/supervisor/conf.d/supervisord.conf
 RUN echo '#!/bin/sh' >> /startup.sh
 RUN echo 'service cron start' >> /startup.sh
 RUN echo 'service mysql start' >> /startup.sh
+RUN echo 'service php7.2-fpm start' >> /startup.sh
 RUN echo 'service nginx start' >> /startup.sh
 RUN echo '/opt/mssql/bin/sqlservr' >> /startup.sh
 RUN echo 'exec supervisord -c /etc/supervisor/supervisord.conf' >> /startup.sh
