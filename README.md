@@ -1,0 +1,2 @@
+# lnmmp7.2
+test NGINX+MSSQL+MYSQL+PHP7.2
