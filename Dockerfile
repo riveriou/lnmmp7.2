@@ -17,7 +17,7 @@ RUN chmod 755 /data/php7.2-mssql2019-mysql10.sh
 RUN /data/php7.2-mssql2019-mysql10.sh
 RUN echo "<?PHP phpinfo(); ?>" > /var/www/html/test.php
 
-RUN apt-get install -y supervisor
+RUN apt-get install -y supervisor cron
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN echo "[supervisord] " >> /etc/supervisor/conf.d/supervisord.conf
@@ -26,6 +26,7 @@ RUN echo "user=root" >> /etc/supervisor/conf.d/supervisord.conf
 
 
 RUN echo '#!/bin/sh' >> /startup.sh
+RUN echo 'cron' >> /startup.sh
 RUN echo 'service mysql start' >> /startup.sh
 RUN echo 'service nginx start' >> /startup.sh
 RUN echo '/opt/mssql/bin/sqlservr' >> /startup.sh
